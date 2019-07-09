@@ -1,0 +1,28 @@
+{
+  "name": "yonna/throwable",
+  "description": "Yonna 异常处理",
+  "license": "MIT",
+  "type": "library",
+  "keywords": [
+    "php",
+    "yonna",
+    "framework",
+    "throwable",
+    "exception"
+  ],
+  "require": {
+    "php": "~7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yonna\\Throwable\\": ""
+    }
+  },
+  "authors": [
+    {
+      "name": "hunzsig",
+      "email": "mzyhaohaoren@qq.com",
+      "homepage": "https://www.hunzsig.org"
+    }
+  ]
+}
