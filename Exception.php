@@ -3,6 +3,7 @@
 namespace Yonna\Throwable;
 
 
+use Throwable;
 use Yonna\Throwable\Exception\DatabaseException;
 use Yonna\Throwable\Exception\DebugException;
 use Yonna\Throwable\Exception\ParamsException;
@@ -13,10 +14,10 @@ class Exception
 {
 
     /**
-     * @param \Exception $e
-     * @throws \Exception
+     * @param Throwable $e
+     * @throws Throwable
      */
-    public static function origin(\Exception $e)
+    public static function origin(Throwable $e)
     {
         throw $e;
     }
