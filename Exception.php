@@ -3,49 +3,67 @@
 namespace Yonna\Throwable;
 
 
-use Throwable;
+use Yonna\Throwable\Exception\DatabaseException;
+use Yonna\Throwable\Exception\DebugException;
+use Yonna\Throwable\Exception\ParamsException;
+use Yonna\Throwable\Exception\SDKException;
+use Yonna\Throwable\Exception\ThrowException;
 
 class Exception
 {
 
-    private static function e($type, $msg)
-    {
-        throw new \Exception("[{$type}]{$msg}", Type::code($type));
-    }
-
     /**
-     * 抛出原有
-     * @param Throwable $e
-     * @throws Throwable
+     * @param \Exception $e
+     * @throws \Exception
      */
-    public static function origin(Throwable $e)
+    public static function origin(\Exception $e)
     {
         throw $e;
     }
 
+    /**
+     * @param $msg
+     * @throws ThrowException
+     */
     public static function throw($msg)
     {
-        self::e(Type::THROW, $msg);
+        throw new ThrowException($msg);
     }
 
+    /**
+     * @param $msg
+     * @throws DebugException
+     */
     public static function debug($msg)
     {
-        self::e(Type::DEBUG, $msg);
+        throw new DebugException($msg);
     }
 
-    public static function abort($msg)
-    {
-        self::e(Type::ABORT, $msg);
-    }
-
+    /**
+     * @param $msg
+     * @throws DatabaseException
+     */
     public static function database($msg)
     {
-        self::e(Type::DATABASE, $msg);
+        throw new DatabaseException($msg);
     }
 
-    public static function param($msg)
+    /**
+     * @param $msg
+     * @throws ParamsException
+     */
+    public static function params($msg)
     {
-        self::e(Type::PARAM, $msg);
+        throw new ParamsException($msg);
+    }
+
+    /**
+     * @param $msg
+     * @throws SDKException
+     */
+    public static function sdk($msg)
+    {
+        throw new SDKException($msg);
     }
 
 }

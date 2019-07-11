@@ -7,7 +7,8 @@
 ## Yonna throwable库
 
 ```
-throwable更好地管理抛出
+throwable更好地管理抛出/错误
+你可以简单地运送默认的组件操作你的错误
 ```
 
 ## 
@@ -29,19 +30,34 @@ throwable更好地管理抛出
 
     use Yonna\Throwable\Exception;
     
-    class YourClass
-    {
-        const YOUR_THROW = true;
-    
-        public function checkMyLogic(){
-            if(self::YOUR_THROW){
-                Exception::throw('oh my god');
-                Exception::abort('oh my god');
-                Exception::database('oh my db');
-            }
-        }
-        
+    // 按原来捕捉抛出
+    try{
+        // ...
+    } catch (\Throwable $e){
+        Exception::origin($e);
     }
+    
+    Exception::throw('default exception');
+    Exception::params('oh my params');
+    Exception::database('oh my database');
+    Exception::sdk('oh my sdk');
+    Exception::debug('oh my debug');
+    // more
+    
+?>
+```
+
+> 使用 Throwable 管理你的 Error
+```php
+<?php
+    
+
+    use Yonna\Throwable\Error;
+    
+    Error::throw('default');
+    Error::notice('notice');
+    Error::warning('warning');
+    Error::deprecated('deprecated');
     
 ?>
 ```
