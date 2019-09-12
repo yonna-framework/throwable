@@ -11,5 +11,6 @@ abstract class Code
     const PARAMS = 1002;
     const DATABASE = 1003;
     const SDK = 1004;
+    const PERMISSION = 1005;
 
 }

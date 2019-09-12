@@ -7,6 +7,7 @@ use Throwable;
 use Yonna\Throwable\Exception\DatabaseException;
 use Yonna\Throwable\Exception\DebugException;
 use Yonna\Throwable\Exception\ParamsException;
+use Yonna\Throwable\Exception\PermissionException;
 use Yonna\Throwable\Exception\SDKException;
 use Yonna\Throwable\Exception\ThrowException;
 
@@ -65,6 +66,15 @@ class Exception
     public static function sdk($msg)
     {
         throw new SDKException($msg);
+    }
+
+    /**
+     * @param $msg
+     * @throws PermissionException
+     */
+    public static function permission($msg)
+    {
+        throw new PermissionException($msg);
     }
 
 }
